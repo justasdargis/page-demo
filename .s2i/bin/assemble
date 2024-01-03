@@ -17,7 +17,11 @@ rm -rf ./.hg ./.git ./.svn
 
 echo "Running s2i customization..."
 
-export CONTENT="myCustomContent123"
+if [ -z "$CONTENT" ]; then
+    export CONTENT="myCustomContent123"
+    echo "------ Using default s2i content"
+else 
+    echo "------ Using s2i content from build env"
 
 sed -i "s/CONTENT/$CONTENT/g" *.html
 
