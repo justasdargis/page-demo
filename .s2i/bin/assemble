@@ -22,6 +22,7 @@ if [ -z "$CONTENT" ]; then
     echo "------ Using default s2i content"
 else 
     echo "------ Using s2i content from build env"
+fi
 
 sed -i "s/CONTENT/$CONTENT/g" *.html
 
